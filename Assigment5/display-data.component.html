@@ -1,0 +1,18 @@
+<p>display-data works!</p>
+
+<h3>--- Details ---</h3>
+<div>
+    <label for="id-select">Select ID:</label>
+    <select id="id-select" [(ngModel)]="selectedId">
+      <option *ngFor="let item of data" [value]="item.id">{{ item.id }}</option>
+    </select>
+    <button (click)="onSelect(selectedId)">Show</button>
+  </div>
+  
+  <div *ngIf="selectedData">
+    <h3>Details for ID: {{ selectedData.id }}</h3>
+    <p>Name: {{ selectedData.name }}</p>
+    <p>Age: {{ selectedData.age }}</p>
+    <p>Phone: {{ selectedData.phone }}</p>
+  </div>
+  
