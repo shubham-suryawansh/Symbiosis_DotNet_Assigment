@@ -1,0 +1,19 @@
+<div class="container">
+    <h3>12 Digit Validation</h3>
+    <form [formGroup]="numberForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="numberInput">Enter 12-digit number</label>
+        <input id="numberInput" formControlName="numberInput" placeholder="eg:. 1234-1234-1234">
+      </div>
+      <div *ngIf="numberForm.controls['numberInput'].invalid && numberForm.controls['numberInput'].touched">
+        <small *ngIf="numberForm.controls['numberInput'].errors?.['required']">Number is required.</small>
+        <small *ngIf="numberForm.controls['numberInput'].errors?.['pattern']">Number must be exactly 12 digits long and contain only numbers.</small>
+      </div>
+      <button type="submit" [disabled]="numberForm.invalid">Submit</button>
+    </form>
+  
+    <div class="formatted-number" *ngIf="formattedNumber">
+      Formatted Number: {{ formattedNumber }}
+    </div>
+  </div>
+  
